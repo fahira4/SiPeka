@@ -1,31 +1,102 @@
-# SiPeka - Sistem Pelaporan Kebersihan
+# 📑 SiPeka - Sistem Pelaporan Kebersihan
+Masalah sampah yang tidak terkelola dengan baik, seperti penumpukan sampah liar dan keterlambatan pengangkutan, masih sering terjadi di lingkungan masyarakat. Hal ini disebabkan oleh kurangnya sistem pelaporan yang efektif antara warga dan petugas kebersihan. Untuk mengatasi hal tersebut, dikembangkanlah SiPeka (Sistem Pelaporan Kebersihan), yaitu aplikasi layanan publik berbasis Java yang menerapkan prinsip Object-Oriented Programming (OOP). SiPeka bertujuan untuk efisiensi pengelolaan kebersihan lingkungan,diantaranya :
+1.	Meningkatkan Partisipasi Masyarakat dalam Pengelolaan Kebersihan
+2.	Mempermudah Pengelolaan Jadwal Pengangkutan Sampah
+3.	Mempercepat Proses Tindak Lanjut Laporan Sampah
+4.	Mendorong Budaya Bersih Melalui Gamifikasi
+5.	Menyediakan Forum Diskusi Warga
+---
+## 📂 Struktur Kode
+```
+SIPEKA/
+├───main
+│   ├───java
+│   │   └───test
+│   │       │   Main.java
+│   │       │
+│   │       ├───connector
+│   │       │       dbConnector.java
+│   │       │
+│   │       ├───controller
+│   │       │       DashboardController.java
+│   │       │       HalamanLogin.java
+│   │       │       LayananNotifikasi.java
+│   │       │       PengendaliForum.java
+│   │       │       PengendaliGamifikasi.java
+│   │       │       PengendaliJadwal.java
+│   │       │       PengendaliLogin.java
+│   │       │       PengendaliStatistik.java
+│   │       │
+│   │       ├───database
+│   │       │       RankingRTDAO.java
+│   │       │       SiPeka.db
+│   │       │
+│   │       ├───helper
+│   │       │       session.java
+│   │       │
+│   │       ├───model
+│   │       │       AcaraEdukasi.java
+│   │       │       ForumDiskusi.java
+│   │       │       Gamifikasi.java
+│   │       │       JadwalPengangkutan.java
+│   │       │       LaporanStatistik.java
+│   │       │       NotifikasiJadwal.java
+│   │       │       Pengguna.java
+│   │       │       RT.java
+│   │       │       StatusLaporan.java
+│   │       │
+│   │       └───tampilan
+│   │               FormLaporanSampah.java
+│   │               FormRegistrasi.java
+│   │               ForumWarga.java
+│   │               GamifikasiView.java
+│   │               HalamanLogin.java
+│   │               HalamanUtama.java
+│   │               NotifikasiJadwal.java
+│   │               RankingRTView.java
+│   │               StatistikBulananGUI.java
+│   │               TampilanJadwalPengangkutan.java
+│   │
+│   └───resources
+│       └───test
+│           └───fxml
+│                   dashboard.fxml
+│                   login.fxml
+│
+└───test
+    ├───java
+    │   └───test
+    │           AppTest.java
+    │
+    └───resources
+```
+---
+## 🔎 Implementasi OOP
+### 1. Encapsulation
+Setiap class model seperti Pengguna, LaporanSampah, dan StatistikLaporan membungkus data dalam atribut privat dan menyediakan akses melalui method. Ini menjaga keamanan dan integritas data.
 
-Aplikasi ini merupakan sistem layanan publik berbasis digital yang bertujuan untuk membantu masyarakat dan petugas dalam pengelolaan sampah, khususnya dalam pelaporan titik sampah liar, penjadwalan pengangkutan, dan pelaporan berkala. Sistem ini juga dilengkapi fitur inovatif seperti gamifikasi kebersihan, forum komunitas warga, edukasi kebersihan, .
+### 2. Inheritance
+Struktur class mendukung pewarisan sifat dari class umum seperti Pengguna.
+
+### 3. Polymorphism
+Beberapa class GUI seperti MenuUtama, PanelAdmin, dan ForumWarga memiliki method yang sama namun menampilkan hasil atau tampilan yang disesuaikan dengan pengguna masing-masing.
+
+### 4. Abstraction
+Fungsi kompleks seperti penyimpanan data (PenyimpananData.java) dan layanan notifikasi (LayananNotifikasi.java) disederhanakan melalui interface method yang mudah digunakan tanpa perlu memahami logika internalnya.
 
 ---
-
-## Fitur Utama
-
-### Fitur Dasar (Final)
-1. **Notifikasi Jadwal Pengangkutan Sampah**
-   - Mengirim pengingat otomatis sesuai jadwal pengangkutan di wilayah RT/RW pengguna.
-2. **Pelaporan Titik Sampah Liar**
-   - Pengguna dapat mengunggah foto, lokasi, dan deskripsi titik sampah liar.
-3. **Laporan Berkala**
-   - Menampilkan statistik bulanan terkait laporan sampah untuk warga dan petugas.
-
----
-
-## Fitur Inovatif (Pengembangan Tambahan)
-1. **Gamifikasi Kebersihan**
-   - Warga aktif mendapat poin, level, dan badge sebagai penghargaan.
-   - Ada sistem ranking RT bersih.
-2. **Jadwal Edukasi & Kegiatan Bersih-Bersih**
-   - Kalender gotong royong atau edukasi kebersihan yang bisa dilihat warga.
-3. **Fitur Komunitas / Forum Warga**
-   - Forum diskusi dan kolaborasi antarwarga.
-4. **Integrasi dengan Petugas Lapangan (Admin Panel)**
-   - Admin dapat menerima, memverifikasi, dan merespons laporan dengan cepat.
----
-
-
+## ⚙️ Cara Menjalankan Aplikasi
+1. Pastikan perangkat sudah terpasang : Java, JavaFX SDK, Gradle
+2. Clone repositori
+   ```sh
+   git clone https://github.com/fahira4/SiPeka.git
+   ```
+   Masuk ke direktori
+   ```sh
+   cd SiPeka
+   ```
+3. Build dan jalankan dengan gradle
+   Jalankan aplikasi dengan perintah berikut
+   ```sh
+   ./gradlew run
+   ```
